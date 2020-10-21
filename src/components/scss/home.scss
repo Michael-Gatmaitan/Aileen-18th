@@ -1,0 +1,37 @@
+$primary: #FCCAC5;
+$secondary: #85FFE0;
+$black: #121212;
+$white: #fff;
+
+$inter: "Inter", sans-serif;
+$opensans: "Open sans", sans-serif;
+
+.header {
+  font-size: 32px;
+  line-height: 38.4px;
+  font-family: $inter;
+  font-weight: 700;
+  color: $white;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 5px;
+  margin-top: 90px;
+
+  .grid {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(#DBACA7, 0.16);
+
+    img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+}
+
+.content {
+  margin-top: 230px;
+}

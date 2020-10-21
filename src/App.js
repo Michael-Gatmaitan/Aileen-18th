@@ -1,36 +1,136 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 
-// function App() {
-//   let x = [
-//     1, 2, 3, 4, 5
-//   ];
+import { TweenMax } from 'gsap';
 
-//   return (
-//     <React.Fragment>
-      
-//       {x.map( (e, i) => <img src={require(`./Aileen_Album-1/${i + 1}.jpg`)} alt="ASDASDASD" width="20" />)}
-//     </React.Fragment>
-//   );
-// }
+// 
+import Home from './components/Home';
 
-class App extends React.Component {
+
+
+class App extends Component {
   constructor(props) {
     super(props);
-    this.myRef = React.createRef();
-  }
 
-  componentDidMount() {
-    // this.myRef.style.backgroundColor = "#ff0";
-    console.log(this.myRef.current);
+    // Declare REFS
+
+    this.state = {
+      colors: {
+        primary: "#FCCAC5",
+        secondary: "#85FFE0",
+        white: "#fff"
+      },
+      
+      isOpen: false,
+      currentPage: "Home",
+
+      links: [
+        {id: 0, link: '/', page: "Home", },
+        {id: 1, link: '/gallery', page: "Gallery", },
+        {id: 2, link: '/about', page: "About", },
+        {id: 3, link: '/contact', page: "Contact Dev", },
+      ],
+    }
+
+
   }
 
   render() {
-    return <div className="bx" ref={ this.myRef }></div>;
+    const { isOpen } = this.state;
+    const { currentPage } = this.state;
+    const { primary, secondary, white } = this.state.colors;
+
+    return (
+      <Router>
+
+        <nav>
+          <div className="menu">
+            <img src={require('./svg/nav-open.svg')}
+              alt="svg"
+              onClick={ () => this.setState({ isOpen: true }) }
+            />
+          </div>
+        </nav>
+
+        <div className="menu-block" style={{ top: isOpen ? 0 : "-100vh" }}>
+          <ul>
+            {this.state.links.map((l, i) => (
+              <li key={l.id}>
+                <Link to={l.link}
+                  onClick={
+                    () => {
+                      this.setState({ isOpen: false });
+                      this.setState({ currentPage: l.page })
+                    }
+                  }
+                  style={{
+                    color: l.page === currentPage ? secondary : white
+                  }}
+                >
+                  {l.page}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="render-box">
+          <Switch>
+            
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/gallery">
+              <Gallery />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+            
+          </Switch>
+        </div>
+
+      </Router>
+    )
   }
 }
 
 export default App;
 
+function About() {
+  return <h2>About</h2>;
+}
+
+function Gallery() {
+  return <h2>Gallery</h2>;
+}
+
+function Contact() {
+  return <h2>Contact</h2>;
+}
+
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.myRef = React.createRef();
+//   }
+
+//   componentDidMount() {
+//     TweenMax.from(this.myRef.current, 3, { opacity: 0, x: 500});
+//   }
+
+//   render() {
+//     return <div className="bx" ref={ this.myRef }></div>;
+//   }
+// }
 
 // import React, { Component } from 'react';
 // import logo from './logo.svg';

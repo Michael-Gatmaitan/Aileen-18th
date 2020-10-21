@@ -1,0 +1,33 @@
+.header {
+  font-size: 32px;
+  line-height: 38.4px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.home-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+  grid-column-gap: 5px;
+  margin-top: 90px;
+}
+
+.home-grid .grid {
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 3px 6px rgba(219, 172, 167, 0.16);
+          box-shadow: 0 3px 6px rgba(219, 172, 167, 0.16);
+}
+
+.home-grid .grid img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.content {
+  margin-top: 230px;
+}
+/*# sourceMappingURL=home.css.map */
