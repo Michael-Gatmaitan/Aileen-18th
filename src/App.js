@@ -1,71 +1,92 @@
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from 'react-router-dom';
-
-import { TweenMax } from 'gsap';
-
-// 
+import { TweenMax, Power2 } from 'gsap';
 import Home from './components/Home';
 
+function App() {
 
+  let primary = "#FCCAC5";
+  let secondary = "#85FFE0";
+  let white = "#fff";
+  
+  let [isOpen, setIsOpen] = useState(false);
+  let [currentPage, setCurrentPage] = useState("Home");
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+  let links = [
+    {id: 0, link: '/', page: "Home", },
+    {id: 1, link: '/gallery', page: "Gallery", },
+    {id: 2, link: '/about', page: "About", },
+    {id: 3, link: '/contact', page: `Contact Dev`, },
+  ];
 
-    // Declare REFS
+  let menuBlock = useRef(null);
+  let b1 = useRef(null);
+  let b2 = useRef(null);
+  let b3 = useRef(null);
+  let b4 = useRef(null);
+  let navButtons = [b1, b2, b3, b4];
 
-    this.state = {
-      colors: {
-        primary: "#FCCAC5",
-        secondary: "#85FFE0",
-        white: "#fff"
-      },
-      
-      isOpen: false,
-      currentPage: "Home",
+  function menuAction(openState) {
+    setIsOpen(openState);
 
-      links: [
-        {id: 0, link: '/', page: "Home", },
-        {id: 1, link: '/gallery', page: "Gallery", },
-        {id: 2, link: '/about', page: "About", },
-        {id: 3, link: '/contact', page: "Contact Dev", },
-      ],
+    let open = _ => {
+      TweenMax.to(menuBlock, 0.4, {
+        top: 0,
+        ease: Power2.easeInOut
+      });
+      TweenMax.staggerTo(navButtons, .4, {
+        y: 0,
+        opacity: 1,
+        ease: Power2.easeOut,
+        delay: 0.8
+      }, 0.1);
     }
 
+    let close = _ => {
+      TweenMax.staggerTo(navButtons, .4, {
+        y: 24,
+        opacity: 0,
+        ease: Power2.easeOut,
+        delay: 0.1
+      }, 0.1);
 
-  }
+      TweenMax.to(menuBlock, 0.4, {
+        top: "-100vh",
+        ease: Power2.easeInOut,
+        delay: 0.45
+      });
+    }
 
-  render() {
-    const { isOpen } = this.state;
-    const { currentPage } = this.state;
-    const { primary, secondary, white } = this.state.colors;
+    isOpen === !true ? open() : close();
+  } 
 
-    return (
-      <Router>
-
+  return (
+    <Router>
         <nav>
-          <div className="menu">
+          <div className="menu" onClick={ _ => menuAction(true) }>
             <img src={require('./svg/nav-open.svg')}
               alt="svg"
-              onClick={ () => this.setState({ isOpen: true }) }
             />
           </div>
         </nav>
 
-        <div className="menu-block" style={{ top: isOpen ? 0 : "-100vh" }}>
+        <div className="menu-block"
+          ref={ e => menuBlock = e }
+          // style={{ top: isOpen ? 0 : "-100vh" }}
+        >
           <ul>
-            {this.state.links.map((l, i) => (
-              <li key={l.id}>
+            {links.map((l, i) => (
+              <li key={l.id} ref={ e => navButtons[i] = e }>
                 <Link to={l.link}
                   onClick={
                     () => {
-                      this.setState({ isOpen: false });
-                      this.setState({ currentPage: l.page })
+                      menuAction(false);
+                      setCurrentPage(l.page);
                     }
                   }
                   style={{
@@ -80,8 +101,8 @@ class App extends Component {
         </div>
 
         <div className="render-box">
+
           <Switch>
-            
             <Route path="/contact">
               <Contact />
             </Route>
@@ -94,13 +115,12 @@ class App extends Component {
             <Route path="/">
               <Home />
             </Route>
-            
           </Switch>
+
         </div>
 
       </Router>
-    )
-  }
+  )
 }
 
 export default App;

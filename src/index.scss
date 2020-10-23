@@ -35,8 +35,9 @@ nav {
   left: 0;
   display: flex;
   align-items: center;
-  // background-color: rgba($primary, 0.8);
-  // backdrop-filter: blur(20px);
+  z-index: 998;
+  background-color: rgba($primary, 0.8);
+  backdrop-filter: blur(10px);
   
   .menu {
     height: 58px;
@@ -51,10 +52,11 @@ nav {
   height: 100vh;
   position: fixed;
   left: 0;
+  top: -100vh;
   background-color: #121212;
   padding-top: 117px;
   padding-left: 15px;
-  transition: 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   z-index: 999;
 
   ul {
@@ -63,6 +65,8 @@ nav {
     grid-gap: 24px;
 
     li {
+      transform: translateY(24px);
+      opacity: 0;
       list-style-type: none;
       
       a {
