@@ -7,7 +7,9 @@ $white: #fff;
 
 $inter: 'Inter', sans-serif;
 $opensans: 'Open sans', sans-serif;
-
+html, body {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0 15px;
   background-color: $primary;
@@ -15,6 +17,7 @@ body {
 
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 ::-webkit-scrollbar {
@@ -59,6 +62,22 @@ nav {
   transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   z-index: 999;
 
+  .menu-block-nav {
+    width: 100vw;
+    height: 56px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .menu-block-menu-button {
+      width: 56px;
+      height: 100%;
+      display: grid;
+      place-items: center;
+
+    }
+  }
+
   ul {
     padding: 0;
     display: grid;
@@ -77,13 +96,11 @@ nav {
         font-weight: 700;
         transition: 0.3s ease-in;
         user-select: none;
+
+        &:hover {
+          color: #4CE6BF;
+        }
       }
     }
   }
-}
-
-.bx {
-  width: 100px;
-  height: 100px;
-  background-color: #000;
 }

@@ -19,6 +19,7 @@ function Home() {
   let mask1 = useRef(null);
   let mask2 = useRef(null);
   let mask3 = useRef(null);
+  let masks = [mask1, mask2, mask3];
 
   let t = -70;
 
@@ -26,15 +27,20 @@ function Home() {
     {
       id: 0,
       title: `Just want to make u :)`,
-      para: `Happy 18th birthday Aileen (Joy joy), so this is a simple gift made with heart. I was only a boy na mukang adik sa gilid gilid pero u still trust me in everything. I just want to help u kaya lumapit ako sayo pero di lang pala tulong yung maitutulong ko sa 'yo, ako din pala magiging happy pill mo.
+      para: `Happy 18th birthday Aileen (Joy joy), so this is a simple gift I made with a heart. I was only a boy na mukang adik sa gilid gilid pero u still trust me in everything. I just want to help u kaya lumapit ako sayo pero di lang pala tulong yung maitutulong ko sa 'yo, ako din pala magiging happy pill mo.
+      
       Ur smile is the best smile I ever see :)) U also make me happy because I know that Im the reason of your smile.
+      
       I just want to make u smile <3.`,
       src: `block1.jpeg`,
       order: 0,
     }, {
       id: 1,
       title: `You just leveled up!`,
-      para: `You just leveled up! hindi lang sa age, kundi sa pagiging isang mabuting anak din. Always think about lahat ng pangarap mo sa buhay para mas lumakas ka kung sakaling mabe-breakdown ka. Always make your papa proud of you not just by grades, pakita mo lalo na sobrang miss mo na sya.
+      para: `You just leveled up! hindi lang sa age, kundi sa pagiging isang mabuting anak din.
+
+      Always think about lahat ng pangarap mo sa buhay para mas lumakas ka kung sakaling mabe-breakdown ka. Always make your papa proud of you not just by grades, pakita mo lalo na sobrang miss mo na sya.
+
       I will always be here for you, to support you, to teach you & to care you.`,
       src: `block2.jpeg`,
       order: -1,
@@ -42,7 +48,9 @@ function Home() {
       id: 2,
       title: `Be back never`,
       para: `You said that you want to travel around the world and make a happy life with someone. You said that you want to build a business with someone. You will become successful woman. "Study, work, house, car, travel, family". Pop.
+
       Stay optimistic.
+
       If you want it, work for it! Never stop learning something new everyday. Life is about learning, stay strong matutupad yang mga pangarap mo kasama ako.`,
       src: `block3.jpg`,
       order: 0,
@@ -51,7 +59,7 @@ function Home() {
       title: `U're f*cking special!`,
       para: `When you are down, I'm here, when you need help, talk with me. I'm always be here to love and  support you because you are so f*cking special!
 
-      Handa akong tumulong kahit kailan hanggat nasa tama ka. Pero kung ikaw yung may tama, pwede rin HAHAHA
+      Handa akong tumulong kahit kailan hanggat nasa tama ka. Pero kung ikaw yung may tama, pwede rin HAHAHA.
       
       You are f*cking special, yeah.`,
       src: `block4.jpg`,
@@ -62,10 +70,8 @@ function Home() {
   let [isCardOpen, setIsCardOpen] = useState(false);
 
   let [cardReadProps, setCardReadProps] = useState({
-    title: `Be back never`,
-    para: `You said that you want to travel around the world and make a happy life with someone. You said that you want to build a business with someone. You will become successful woman. "Study, work, house, car, travel, family". Pop.
-    Stay optimistic.
-    If you want it, work for it! Never stop learning something new everyday. Life is about learning, stay strong matutupad yang mga pangarap mo kasama ako.`,
+    title: ``,
+    para: ``,
   });
 
   useEffect(() => {
@@ -82,8 +88,52 @@ function Home() {
 
   }, []);
 
-  let cardAction = () => {
+  // Card related elements
+  let cardContainer = useRef(null);
+  let readCard = useRef(null);
+  let cardHead = useRef(null);
+  let cardPara = useRef(null);
+  let cardButton = useRef(null);
+  // let cardElements = [cardContainer, readCard, cardHead, cardPara, cardButton];
+  
+  let cardAction = (card, isCardOpenState) => {
+    let body = document.getElementsByTagName("body")[0];
+
+    let openCard = () => {
+      setCardReadProps(card);
+      TweenMax.to(body, {
+        overflowY: "hidden"
+      });
+
+      // Reset scroll position of Paragraph's container
+      cardPara.scrollTo(0, 0);
+
+      TweenMax.staggerFrom([readCard, cardHead, cardPara, cardButton], 0.2, {
+        y: 15,
+        opacity: 0,
+        ease: Power3.easeOut
+      }, 0.12)
+      TweenMax.to(cardContainer, 0.2, {
+        opacity: 1,
+        pointerEvents: "auto",
+      });
+    }
     
+    let closeCard = () => {
+      TweenMax.to(body, {
+        overflow: "visible"
+      });
+
+      TweenMax.to(cardContainer, 0.2, {
+        opacity: 0,
+        pointerEvents: "none",
+      });
+    }
+
+    // Set state display of Card, { Header, Paragraph }
+    // Set isCardOpen State
+    setIsCardOpen(isCardOpenState);
+    isCardOpen === !true ? openCard() : closeCard();
   }
 
   return (
@@ -98,10 +148,10 @@ function Home() {
       </div>
 
       <div className="home-grid">
-        { homeGrid.map( el => (
+        { homeGrid.map( (el, i) => (
           <div key={el.id} className="grid" style={{ transform: `translateY(${t += 70}px)`}}>
-            <div className="mask"></div>
-            <img src={require(`../image/home-grid-images/${el.src}`)} alt="img" className="grid-image" />
+            <div className="mask" ref={ e => masks[i] = e } />
+            <img src={require(`../image/home-grid-images/${el.src}`)} alt="grid-images" className="grid-image" />
           </div>
         )) }
       </div>
@@ -126,30 +176,41 @@ function Home() {
               <div className="read"
                 onClick={
                   () => {
-                    cardAction(card);
+                    cardAction(card, true);
                   }
                 }>Read</div>
 
             </div>
             <div className="right-sec" style={{ order: card.order }}>
-              <img src={require(`../image/block-grid-images/${card.src}`)} alt="image" />
+              <img src={require(`../image/block-grid-images/${card.src}`)} alt="card-image" />
             </div>
           </div>
         ))}
-
+        
+        <div className="back-to-top-container">
+          <div className="back-to-top-holder">
+            <div className="back-to-top" onClick={ () => {
+              document.body.scrollIntoView(true);
+            }}>
+              <img src={require('../svg/back-to-top.svg')} alt="back-to-top" />
+              <div>Back to top</div>
+            </div>
+          </div>
+        </div>
+      
       </div>
 
-      <div className="read-card-container">
+      <div className="read-card-container" ref={ e => cardContainer = e }>
         <div />
-        <div className="read-card">
-          <div className="card-head">
+        <div className="read-card" ref={ e => readCard = e }>
+          <div className="card-head" ref={ e => cardHead = e }>
             {cardReadProps.title}
           </div>
-          <div className="card-para">
+          <div className="card-para" ref={ e => cardPara = e }>
             {cardReadProps.para}
           </div>
 
-          <div className="close-card" onClick={ () => setIsCardOpen(true) }>
+          <div className="close-card" onClick={ () => cardAction({}, false) } ref={ e => cardButton = e }>
             Close
           </div>
         </div>
@@ -160,3 +221,13 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
+
+
+
+
+
+// Elise Aira Z

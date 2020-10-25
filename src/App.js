@@ -6,8 +6,11 @@ import {
   Link
 } from 'react-router-dom';
 import { TweenMax, Power2 } from 'gsap';
-import Home from './components/Home';
 
+import Home from './components/Home';
+import Gallery from './components/Gallery';
+
+// eslint-disable-next-line
 function App() {
 
   let primary = "#FCCAC5";
@@ -24,17 +27,37 @@ function App() {
     {id: 3, link: '/contact', page: `Contact Dev`, },
   ];
 
+  let menuButton = useRef(null);
+
   let menuBlock = useRef(null);
+  let menuBlockMenu = useRef(null);
   let b1 = useRef(null);
   let b2 = useRef(null);
   let b3 = useRef(null);
   let b4 = useRef(null);
   let navButtons = [b1, b2, b3, b4];
 
-  function menuAction(openState) {
+  let menuAction = openState => {
     setIsOpen(openState);
+    let body = document.getElementsByTagName("body")[0];
 
     let open = _ => {
+      // Body disabled from scrolling if Card is Open || Opened
+      TweenMax.to(body, {
+        overflow: "hidden"
+      });
+
+      // Menu Open action prevent || Can't touch
+      TweenMax.to(menuButton, 0, {
+        pointerEvents: "none"
+      });
+
+      // Menu Block action show || Can touch
+      TweenMax.staggerTo([menuBlockMenu, ...navButtons], 0, {
+        pointerEvents: "auto"
+      }, 0);
+
+      // Main Animations for Opening Menu
       TweenMax.to(menuBlock, 0.4, {
         top: 0,
         ease: Power2.easeInOut
@@ -48,7 +71,24 @@ function App() {
     }
 
     let close = _ => {
+      // Body abled from scrolling if Card is Close || Closed
+      TweenMax.to(body, {
+        overflow: "visible"
+      });
+
+      // Menu Open action prevent || Can touch
+      TweenMax.to(menuButton, 0, {
+        pointerEvents: "auto"
+      });
+
+      // Menu Block action show || Can't touch
+      TweenMax.staggerTo([menuBlockMenu, ...navButtons], 0, {
+        pointerEvents: "none"
+      }, 0);
+
+      // Main Animations for Closing Menu
       TweenMax.staggerTo(navButtons, .4, {
+        pointerEvents: "none",
         y: 24,
         opacity: 0,
         ease: Power2.easeOut,
@@ -68,7 +108,8 @@ function App() {
   return (
     <Router>
         <nav>
-          <div className="menu" onClick={ _ => menuAction(true) }>
+          <div className="menu" onClick={ _ => menuAction(true) }
+            ref={ e => menuButton = e }>
             <img src={require('./svg/nav-open.svg')}
               alt="svg"
             />
@@ -77,8 +118,15 @@ function App() {
 
         <div className="menu-block"
           ref={ e => menuBlock = e }
-          // style={{ top: isOpen ? 0 : "-100vh" }}
         >
+          <div className="menu-block-nav">
+            <div className="menu-block-menu-button"
+              onClick={ () => menuAction(false) }
+              ref={ e => menuBlockMenu = e }
+            >
+              <img src={require(`./svg/nav-close.svg`)} alt="close" />
+            </div>
+          </div>
           <ul>
             {links.map((l, i) => (
               <li key={l.id} ref={ e => navButtons[i] = e }>
@@ -127,10 +175,6 @@ export default App;
 
 function About() {
   return <h2>About</h2>;
-}
-
-function Gallery() {
-  return <h2>Gallery</h2>;
 }
 
 function Contact() {

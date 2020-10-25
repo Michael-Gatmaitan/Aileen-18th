@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans&display=swap");
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0 15px;
   background-color: #FCCAC5;
@@ -7,6 +11,10 @@ body {
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 ::-webkit-scrollbar {
@@ -57,6 +65,22 @@ nav .menu {
   z-index: 999;
 }
 
+.menu-block .menu-block-nav {
+  width: 100vw;
+  height: 56px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.menu-block .menu-block-nav .menu-block-menu-button {
+  width: 56px;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
 .menu-block ul {
   padding: 0;
   display: -ms-grid;
@@ -85,9 +109,7 @@ nav .menu {
           user-select: none;
 }
 
-.bx {
-  width: 100px;
-  height: 100px;
-  background-color: #000;
+.menu-block ul li a:hover {
+  color: #4CE6BF;
 }
 /*# sourceMappingURL=index.css.map */
