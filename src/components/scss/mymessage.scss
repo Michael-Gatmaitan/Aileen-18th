@@ -1,0 +1,40 @@
+$primary: #FCCAC5;
+$secondary: #85FFE0;
+$black: #121212;
+$white: #fff;
+
+$inter: 'Inter', sans-serif;
+$opensans: 'Open sans', sans-serif;
+
+.mymessage-page {
+  .header {
+    margin-bottom: 76px;
+  }
+
+  .message-content {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-gap: 48px;
+    margin-bottom: 35px;
+
+    .message-container {
+      
+      .message-header {
+        font-family: $inter;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: calc(24px + (24px / 5));
+        color: $white;
+      }
+
+      .message-para {
+        font-size: 16px;
+        font-family: $opensans;
+        line-height: 24px;
+        color: $white;
+        margin-top: 12px;
+        opacity: 0.84;
+      }
+    }
+  }
+}

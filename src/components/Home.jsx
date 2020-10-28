@@ -76,6 +76,9 @@ function Home() {
 
   useEffect(() => {
     // Animation of Text in Home page
+    document.body.style.backgroundColor = "#FCCAC5";
+    let nav = document.getElementsByTagName("nav")[0];
+    nav.style.backgroundColor = "rgba(252, 202, 197, 0.8)";
 
     TweenMax.staggerFrom([span1,span2,span3,span4, span5], .8, {
       opacity: 0,
@@ -94,7 +97,6 @@ function Home() {
   let cardHead = useRef(null);
   let cardPara = useRef(null);
   let cardButton = useRef(null);
-  // let cardElements = [cardContainer, readCard, cardHead, cardPara, cardButton];
   
   let cardAction = (card, isCardOpenState) => {
     let body = document.getElementsByTagName("body")[0];

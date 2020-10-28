@@ -9,9 +9,19 @@ import { TweenMax, Power2 } from 'gsap';
 
 import Home from './components/Home';
 import Gallery from './components/Gallery';
+import About from './components/About';
+import MyMessage from './components/MyMessage';
+
+import svg1 from './svg/svg1.svg';
+import svg2 from './svg/svg2.svg';
+
+import svg3 from './svg/svg3.svg';
+import svg4 from './svg/svg4.svg';
 
 // eslint-disable-next-line
 function App() {
+
+  let [verd, setVerd] = useState(false);
 
   let primary = "#FCCAC5";
   let secondary = "#85FFE0";
@@ -133,6 +143,7 @@ function App() {
                 <Link to={l.link}
                   onClick={
                     () => {
+                      window.scrollTo(0, 0);
                       menuAction(false);
                       setCurrentPage(l.page);
                     }
@@ -146,13 +157,20 @@ function App() {
               </li>
             ))}
           </ul>
+
+          <img src={svg1} alt="svg1" className="svg svg1" />
+          <img src={svg2} alt="svg2" className="svg svg2" />
+          <img src={svg3} alt="svg3" className="svg svg3" />
+          <img src={svg4} alt="svg4" className="svg svg4" />
         </div>
 
         <div className="render-box">
 
           <Switch>
+            <Route path="/myfuckingmessageforuaileen">
+            </Route>
             <Route path="/contact">
-              <Contact />
+              <MyMessage />
             </Route>
             <Route path="/about">
               <About />
@@ -172,10 +190,6 @@ function App() {
 }
 
 export default App;
-
-function About() {
-  return <h2>About</h2>;
-}
 
 function Contact() {
   return <h2>Contact</h2>;

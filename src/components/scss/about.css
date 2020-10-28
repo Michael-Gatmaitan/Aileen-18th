@@ -1,0 +1,144 @@
+.about-page .about {
+  width: 100%;
+  margin-top: 114px;
+}
+
+.about-page .about .about-head {
+  font-size: 24px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.about-page .about .about-para {
+  font-size: 16px;
+  font-family: "Open sans", sans-serif;
+  color: #fff;
+  line-height: 24px;
+  margin-top: 18px;
+}
+
+.about-page .about .about-button {
+  width: 100%;
+  margin-top: 26px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  background-color: #85FFE0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 17px 0;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.about-page .ver-page-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 56px 15px;
+  background-color: #85FFE0;
+  z-index: 1000;
+  overflow: hidden;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.about-page .ver-page-container .verified {
+  padding: 17px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  width: calc(100% - 30px);
+  top: 56px;
+  left: 15px;
+  background-color: #fff;
+  border-radius: 15px;
+  opacity: 0;
+}
+
+.about-page .ver-page-container .verified .ver-cont {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  grid-gap: 18px;
+}
+
+.about-page .ver-page-container .verified .ver-cont .verified-header {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.about-page .ver-page-container .ver-form {
+  width: 100%;
+  padding: 12px;
+  color: #121212;
+  border-radius: 15px;
+  background-color: #fff;
+  margin-top: 180px;
+}
+
+.about-page .ver-page-container .ver-form .ver-header {
+  font-size: 32px;
+  font-weight: 800;
+  font-family: "Inter", sans-serif;
+}
+
+.about-page .ver-page-container .ver-form .input-ver-container {
+  margin-top: 24px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 23px;
+}
+
+.about-page .ver-page-container .ver-form .input-ver-container input {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px #121212;
+  font-family: "Open sans", sans-serif;
+  color: #121212;
+  width: 100%;
+  padding: 3px;
+}
+
+.about-page .ver-page-container .ver-form .ver-sub {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 0;
+  background-color: #85FFE0;
+  margin-top: 32px;
+}
+/*# sourceMappingURL=about.css.map */

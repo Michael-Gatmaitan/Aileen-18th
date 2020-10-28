@@ -18,6 +18,7 @@ body {
 * {
   box-sizing: border-box;
   user-select: none;
+  outline: none;
 }
 
 ::-webkit-scrollbar {
@@ -60,7 +61,29 @@ nav {
   padding-top: 117px;
   padding-left: 15px;
   transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  overflow: hidden;
   z-index: 999;
+
+  .svg {
+    position: absolute;
+  }
+
+  .svg1 {
+    top: 80px;
+    left: 259px;
+  }
+  .svg2 {
+    top: 430px;
+    left: -20px;
+  }
+  .svg3 {
+    top: 473px;
+    left: 261px;
+  }
+  .svg4 {
+    top: 608px;
+    left: 173px;
+  }
 
   .menu-block-nav {
     width: 100vw;

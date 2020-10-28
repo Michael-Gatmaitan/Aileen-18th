@@ -1,0 +1,131 @@
+
+$secondary: #85FFE0;
+$white: #fff;
+$inter: 'Inter', sans-serif;
+$opensans: 'Open sans', sans-serif;
+
+.about-page {
+  .about {
+    width: 100%;
+    margin-top: 114px;
+
+    .about-head {
+      font-size: 24px;
+      font-family: $inter;
+      font-weight: 700;
+      color: $white;
+    }
+    .about-para {
+      font-size: 16px;
+      font-family: $opensans;
+      color: $white;
+      line-height: 24px;
+      margin-top: 18px;
+    }
+
+    .about-button {
+      width: 100%;
+      margin-top: 26px;
+      font-family: $inter;
+      font-weight: 600;
+      background-color: $secondary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 17px 0;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .ver-page-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 56px 15px;
+    background-color: $secondary;
+    z-index: 1000;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+
+    .verified {
+      padding: 17px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: calc(100% - 30px);
+      top: 56px;
+      left: 15px;
+      background-color: #fff;
+      border-radius: 15px;
+      opacity: 0;
+
+      .ver-cont {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 18px;
+
+        .verified-header {
+          font-family: $inter;
+          font-weight: 600;
+          font-size: 24px;
+        }
+      }
+    }
+
+    .ver-form {
+      width: 100%;
+      padding: 12px;
+      color: #121212;
+      border-radius: 15px;
+      background-color: $white;
+      margin-top: 180px;
+
+      .ver-header {
+        font-size: 32px;
+        font-weight: 800;
+        font-family: $inter;
+
+      }
+
+      .input-ver-container {
+        margin-top: 24px;
+        display: grid;
+        grid-gap: 23px;
+
+        input {
+          background-color: transparent;
+          border: none;
+          border-bottom: solid 2px #121212;
+          font-family: $opensans;
+          color: #121212;
+          width: 100%;
+          padding: 3px;
+        }
+      }
+
+      .ver-sub {
+        width: 100%;
+        font-family: $inter;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        padding: 12px 0;
+        background-color: $secondary;
+        margin-top: 32px;
+      }
+    }
+  }
+}
+
+// white-space: pre-line;

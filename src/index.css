@@ -15,6 +15,7 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  outline: none;
 }
 
 ::-webkit-scrollbar {
@@ -62,7 +63,32 @@ nav .menu {
   padding-left: 15px;
   -webkit-transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  overflow: hidden;
   z-index: 999;
+}
+
+.menu-block .svg {
+  position: absolute;
+}
+
+.menu-block .svg1 {
+  top: 80px;
+  left: 259px;
+}
+
+.menu-block .svg2 {
+  top: 430px;
+  left: -20px;
+}
+
+.menu-block .svg3 {
+  top: 473px;
+  left: 261px;
+}
+
+.menu-block .svg4 {
+  top: 608px;
+  left: 173px;
 }
 
 .menu-block .menu-block-nav {

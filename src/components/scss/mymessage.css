@@ -1,0 +1,29 @@
+.mymessage-page .header {
+  margin-bottom: 76px;
+}
+
+.mymessage-page .message-content {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: auto;
+  grid-gap: 48px;
+  margin-bottom: 35px;
+}
+
+.mymessage-page .message-content .message-container .message-header {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: calc(24px + (24px / 5));
+  color: #fff;
+}
+
+.mymessage-page .message-content .message-container .message-para {
+  font-size: 16px;
+  font-family: "Open sans", sans-serif;
+  line-height: 24px;
+  color: #fff;
+  margin-top: 12px;
+  opacity: 0.84;
+}
+/*# sourceMappingURL=mymessage.css.map */
