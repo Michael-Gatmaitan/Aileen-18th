@@ -1,0 +1,25 @@
+$primary: #FCCAC5;
+$secondary: #85FFE0;
+$black: #121212;
+$white: #fff;
+
+$inter: 'Inter', sans-serif;
+$opensans: 'Open sans', sans-serif;
+
+
+// Viewport sizes
+$tablet-width: 658px;
+$desktop-width: 1024px;
+
+// Given viewport sets
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

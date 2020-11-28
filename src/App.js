@@ -68,6 +68,8 @@ function App() {
       }, 0);
 
       // Main Animations for Opening Menu
+
+      // Change into ==> clip path animation
       TweenMax.to(menuBlock, 0.4, {
         top: 0,
         ease: Power2.easeInOut
@@ -104,6 +106,8 @@ function App() {
         ease: Power2.easeOut,
         delay: 0.1
       }, 0.1);
+
+      // Change into ===> clip path animation
 
       TweenMax.to(menuBlock, 0.4, {
         top: "-100vh",

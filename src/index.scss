@@ -1,18 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans&display=swap');
+@import './_compile';
 
-$primary: #FCCAC5;
-$secondary: #85FFE0;
-$black: #121212;
-$white: #fff;
-
-$inter: 'Inter', sans-serif;
-$opensans: 'Open sans', sans-serif;
 html, body {
   scroll-behavior: smooth;
 }
 body {
   margin: 0 15px;
   background-color: $primary;
+
+  @include tablet {
+    margin: 0 50px;
+  }
 }
 
 * {
@@ -48,6 +46,10 @@ nav {
     width: calc(37px + 15px * 2);
     display: grid;
     place-items: center;
+
+    @include tablet {
+      width: calc(37px + 50px * 2);
+    }
   }
 }
 
@@ -63,6 +65,10 @@ nav {
   transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   overflow: hidden;
   z-index: 999;
+
+  @include tablet {
+    padding-left: 50px;
+  }
 
   .svg {
     position: absolute;
@@ -93,11 +99,14 @@ nav {
     left: 0;
 
     .menu-block-menu-button {
-      width: 56px;
       height: 100%;
       display: grid;
       place-items: center;
+      width: calc(28px + 15px * 2);
 
+      @include tablet {
+        width: calc(28px + 50px * 2);
+      }
     }
   }
 

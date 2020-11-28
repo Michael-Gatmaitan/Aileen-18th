@@ -8,6 +8,12 @@ body {
   background-color: #FCCAC5;
 }
 
+@media (min-width: 658px) and (max-width: 1023px) {
+  body {
+    margin: 0 50px;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -15,7 +21,7 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  outline: none;
+  outline: solid 2px #f00;
 }
 
 ::-webkit-scrollbar {
@@ -52,6 +58,12 @@ nav .menu {
   place-items: center;
 }
 
+@media (min-width: 658px) and (max-width: 1023px) {
+  nav .menu {
+    width: calc(37px + 50px * 2);
+  }
+}
+
 .menu-block {
   width: 100vw;
   height: 100vh;
@@ -65,6 +77,12 @@ nav .menu {
   transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   overflow: hidden;
   z-index: 999;
+}
+
+@media (min-width: 658px) and (max-width: 1023px) {
+  .menu-block {
+    padding-left: 50px;
+  }
 }
 
 .menu-block .svg {
@@ -100,11 +118,17 @@ nav .menu {
 }
 
 .menu-block .menu-block-nav .menu-block-menu-button {
-  width: 56px;
   height: 100%;
   display: -ms-grid;
   display: grid;
   place-items: center;
+  width: calc(28px + 15px * 2);
+}
+
+@media (min-width: 658px) and (max-width: 1023px) {
+  .menu-block .menu-block-nav .menu-block-menu-button {
+    width: calc(28px + 50px * 2);
+  }
 }
 
 .menu-block ul {

@@ -1,10 +1,4 @@
-$primary: #FCCAC5;
-$secondary: #85FFE0;
-$black: #121212;
-$white: #fff;
-
-$inter: "Inter", sans-serif;
-$opensans: "Open sans", sans-serif;
+@import '../../_compile';
 
 .header {
   font-size: 32px;
@@ -24,6 +18,10 @@ $opensans: "Open sans", sans-serif;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 3px 6px rgba(#DBACA7, 0.16);
+
+    @include tablet {
+      border-radius: 10px;
+    }
 
     .mask {
       position: absolute;

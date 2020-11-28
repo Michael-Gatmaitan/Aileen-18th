@@ -1,10 +1,4 @@
-$primary: #fccac5;
-$secondary: #85ffe0;
-$black: #121212;
-$white: #fff;
-
-$inter: "Inter", sans-serif;
-$opensans: "Open sans", sans-serif;
+@import '../../_compile';
 
 .gallery-page {
   .header {
@@ -36,6 +30,11 @@ $opensans: "Open sans", sans-serif;
       grid-gap: 8px;
       content-visibility: auto;
 
+      @include tablet {
+        grid-auto-rows: 155px;
+        grid-gap: 12px;
+      }
+
       .item {
         border-radius: 5px;
         background-color: #000;
@@ -43,9 +42,13 @@ $opensans: "Open sans", sans-serif;
         position: relative;
         cursor: pointer;
 
+        @include tablet {
+          border-radius: 8px;
+        }
+
         &:hover {
           img {
-            transform: scale(1.1) translateY(-50%);
+            transform: scale(1.06) translateY(-50%);
           }
 
           .darken {
@@ -129,6 +132,10 @@ $opensans: "Open sans", sans-serif;
     grid-template-rows: 1fr auto;
     opacity: 0;
     pointer-events: none;
+
+    @include tablet {
+      padding: 0 50px;
+    }
 
     .image-card {
       padding: 15px;

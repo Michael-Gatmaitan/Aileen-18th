@@ -22,6 +22,12 @@
           box-shadow: 0 3px 6px rgba(219, 172, 167, 0.16);
 }
 
+@media (min-width: 658px) and (max-width: 1023px) {
+  .home-grid .grid {
+    border-radius: 10px;
+  }
+}
+
 .home-grid .grid .mask {
   position: absolute;
   top: 0;
