@@ -1,3 +1,6 @@
+/*
+  this too
+
 import React, { useState, useRef } from 'react';
 import {
   BrowserRouter as Router,
@@ -18,186 +21,209 @@ import svg2 from './svg/svg2.svg';
 import svg3 from './svg/svg3.svg';
 import svg4 from './svg/svg4.svg';
 
-// eslint-disable-next-line
-function App() {
+  this too
+*/
 
-  let [verd, setVerd] = useState(false);
+import React from 'react';
 
-  let primary = "#FCCAC5";
-  let secondary = "#85FFE0";
-  let white = "#fff";
-  
-  let [isOpen, setIsOpen] = useState(false);
-  let [currentPage, setCurrentPage] = useState("Home");
-
-  let links = [
-    {id: 0, link: '/', page: "Home", },
-    {id: 1, link: '/gallery', page: "Gallery", },
-    {id: 2, link: '/about', page: "About", },
-    {id: 3, link: '/contact', page: `Contact Dev`, },
-  ];
-
-  let menuButton = useRef(null);
-
-  let menuBlock = useRef(null);
-  let menuBlockMenu = useRef(null);
-  let b1 = useRef(null);
-  let b2 = useRef(null);
-  let b3 = useRef(null);
-  let b4 = useRef(null);
-  let navButtons = [b1, b2, b3, b4];
-
-  let menuAction = openState => {
-    setIsOpen(openState);
-    let body = document.getElementsByTagName("body")[0];
-
-    let open = _ => {
-      // Body disabled from scrolling if Card is Open || Opened
-      TweenMax.to(body, {
-        overflow: "hidden"
-      });
-
-      // Menu Open action prevent || Can't touch
-      TweenMax.to(menuButton, 0, {
-        pointerEvents: "none"
-      });
-
-      // Menu Block action show || Can touch
-      TweenMax.staggerTo([menuBlockMenu, ...navButtons], 0, {
-        pointerEvents: "auto"
-      }, 0);
-
-      // Main Animations for Opening Menu
-
-      // Change into ==> clip path animation
-      TweenMax.to(menuBlock, 0.4, {
-        top: 0,
-        ease: Power2.easeInOut
-      });
-      TweenMax.staggerTo(navButtons, .4, {
-        y: 0,
-        opacity: 1,
-        ease: Power2.easeOut,
-        delay: 0.8
-      }, 0.1);
-    }
-
-    let close = _ => {
-      // Body abled from scrolling if Card is Close || Closed
-      TweenMax.to(body, {
-        overflow: "visible"
-      });
-
-      // Menu Open action prevent || Can touch
-      TweenMax.to(menuButton, 0, {
-        pointerEvents: "auto"
-      });
-
-      // Menu Block action show || Can't touch
-      TweenMax.staggerTo([menuBlockMenu, ...navButtons], 0, {
-        pointerEvents: "none"
-      }, 0);
-
-      // Main Animations for Closing Menu
-      TweenMax.staggerTo(navButtons, .4, {
-        pointerEvents: "none",
-        y: 24,
-        opacity: 0,
-        ease: Power2.easeOut,
-        delay: 0.1
-      }, 0.1);
-
-      // Change into ===> clip path animation
-
-      TweenMax.to(menuBlock, 0.4, {
-        top: "-100vh",
-        ease: Power2.easeInOut,
-        delay: 0.45
-      });
-    }
-
-    isOpen === !true ? open() : close();
-  } 
-
+export default function App() {
   return (
-    <Router>
-        <nav>
-          <div className="menu" onClick={ _ => menuAction(true) }
-            ref={ e => menuButton = e }>
-            <img src={require('./svg/nav-open.svg')}
-              alt="svg"
-            />
-          </div>
-        </nav>
+    <React.Fragment>
+      <h1>Sorry, I permanently deleted this website :), thank u for visiting!!</h1>
 
-        <div className="menu-block"
-          ref={ e => menuBlock = e }
-        >
-          <div className="menu-block-nav">
-            <div className="menu-block-menu-button"
-              onClick={ () => menuAction(false) }
-              ref={ e => menuBlockMenu = e }
-            >
-              <img src={require(`./svg/nav-close.svg`)} alt="close" />
-            </div>
-          </div>
-          <ul>
-            {links.map((l, i) => (
-              <li key={l.id} ref={ e => navButtons[i] = e }>
-                <Link to={l.link}
-                  onClick={
-                    () => {
-                      window.scrollTo(0, 0);
-                      menuAction(false);
-                      setCurrentPage(l.page);
-                    }
-                  }
-                  style={{
-                    color: l.page === currentPage ? secondary : white
-                  }}
-                >
-                  {l.page}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <img src={svg1} alt="svg1" className="svg svg1" />
-          <img src={svg2} alt="svg2" className="svg svg2" />
-          <img src={svg3} alt="svg3" className="svg svg3" />
-          <img src={svg4} alt="svg4" className="svg svg4" />
-        </div>
-
-        <div className="render-box">
-
-          <Switch>
-            <Route path="/myfuckingmessageforuaileen">
-            </Route>
-            <Route path="/contact">
-              <MyMessage />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/gallery">
-              <Gallery />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-
-        </div>
-
-      </Router>
+      <button onClick={ () => window.location = "https://www.facebook.com/michael.gatmaitan29" }>
+        Contact Me
+      </button>
+    </React.Fragment>
   )
 }
 
-export default App;
 
-function Contact() {
-  return <h2>Contact</h2>;
-}
+// New function APP() because of Developer down
+
+// Code dropped, Website will be back as soon the developer recover.
+
+// function App() {
+
+//   let [verd, setVerd] = useState(false);
+
+//   let primary = "#FCCAC5";
+//   let secondary = "#85FFE0";
+//   let white = "#fff";
+  
+//   let [isOpen, setIsOpen] = useState(false);
+//   let [currentPage, setCurrentPage] = useState("Home");
+
+//   let links = [
+//     {id: 0, link: '/', page: "Home", },
+//     {id: 1, link: '/gallery', page: "Gallery", },
+//     {id: 2, link: '/about', page: "About", },
+//     {id: 3, link: '/contact', page: `Contact Dev`, },
+//   ];
+
+//   let menuButton = useRef(null);
+
+//   let menuBlock = useRef(null);
+//   let menuBlockMenu = useRef(null);
+//   let b1 = useRef(null);
+//   let b2 = useRef(null);
+//   let b3 = useRef(null);
+//   let b4 = useRef(null);
+//   let navButtons = [b1, b2, b3, b4];
+
+//   let menuAction = openState => {
+//     setIsOpen(openState);
+//     let body = document.getElementsByTagName("body")[0];
+
+//     let open = _ => {
+//       // Body disabled from scrolling if Card is Open || Opened
+//       TweenMax.to(body, {
+//         overflow: "hidden"
+//       });
+
+//       // Menu Open action prevent || Can't touch
+//       TweenMax.to(menuButton, 0, {
+//         pointerEvents: "none"
+//       });
+
+//       // Menu Block action show || Can touch
+//       TweenMax.staggerTo([menuBlockMenu, ...navButtons], 0, {
+//         pointerEvents: "auto"
+//       }, 0);
+
+//       // Main Animations for Opening Menu
+
+//       // Change into ==> clip path animation
+//       TweenMax.to(menuBlock, 0.4, {
+//         top: 0,
+//         ease: Power2.easeInOut
+//       });
+//       TweenMax.staggerTo(navButtons, .4, {
+//         y: 0,
+//         opacity: 1,
+//         ease: Power2.easeOut,
+//         delay: 0.8
+//       }, 0.1);
+//     }
+
+//     let close = _ => {
+//       // Body abled from scrolling if Card is Close || Closed
+//       TweenMax.to(body, {
+//         overflow: "visible"
+//       });
+
+//       // Menu Open action prevent || Can touch
+//       TweenMax.to(menuButton, 0, {
+//         pointerEvents: "auto"
+//       });
+
+//       // Menu Block action show || Can't touch
+//       TweenMax.staggerTo([menuBlockMenu, ...navButtons], 0, {
+//         pointerEvents: "none"
+//       }, 0);
+
+//       // Main Animations for Closing Menu
+//       TweenMax.staggerTo(navButtons, .4, {
+//         pointerEvents: "none",
+//         y: 24,
+//         opacity: 0,
+//         ease: Power2.easeOut,
+//         delay: 0.1
+//       }, 0.1);
+
+//       // Change into ===> clip path animation
+
+//       TweenMax.to(menuBlock, 0.4, {
+//         top: "-100vh",
+//         ease: Power2.easeInOut,
+//         delay: 0.45
+//       });
+//     }
+
+//     isOpen === !true ? open() : close();
+//   } 
+
+//   return (
+//     <Router>
+//         <nav>
+//           <div className="menu" onClick={ _ => menuAction(true) }
+//             ref={ e => menuButton = e }>
+//             <img src={require('./svg/nav-open.svg')}
+//               alt="svg"
+//             />
+//           </div>
+//         </nav>
+
+//         <div className="menu-block"
+//           ref={ e => menuBlock = e }
+//         >
+//           <div className="menu-block-nav">
+//             <div className="menu-block-menu-button"
+//               onClick={ () => menuAction(false) }
+//               ref={ e => menuBlockMenu = e }
+//             >
+//               <img src={require(`./svg/nav-close.svg`)} alt="close" />
+//             </div>
+//           </div>
+//           <ul>
+//             {links.map((l, i) => (
+//               <li key={l.id} ref={ e => navButtons[i] = e }>
+//                 <Link to={l.link}
+//                   onClick={
+//                     () => {
+//                       window.scrollTo(0, 0);
+//                       menuAction(false);
+//                       setCurrentPage(l.page);
+//                     }
+//                   }
+//                   style={{
+//                     color: l.page === currentPage ? secondary : white
+//                   }}
+//                 >
+//                   {l.page}
+//                 </Link>
+//               </li>
+//             ))}
+//           </ul>
+
+//           <img src={svg1} alt="svg1" className="svg svg1" />
+//           <img src={svg2} alt="svg2" className="svg svg2" />
+//           <img src={svg3} alt="svg3" className="svg svg3" />
+//           <img src={svg4} alt="svg4" className="svg svg4" />
+//         </div>
+
+//         <div className="render-box">
+
+//           <Switch>
+//             <Route path="/myfuckingmessageforuaileen">
+//             </Route>
+//             <Route path="/contact">
+//               <MyMessage />
+//             </Route>
+//             <Route path="/about">
+//               <About />
+//             </Route>
+//             <Route path="/gallery">
+//               <Gallery />
+//             </Route>
+//             <Route path="/">
+//               <Home />
+//             </Route>
+//           </Switch>
+
+//         </div>
+
+//       </Router>
+//   )
+// }
+
+// export default App;
+
+// function Contact() {
+//   return <h2>Contact</h2>;
+// }
+
+// Code dropped, Website will be back as soon the developer recover.
 
 // class App extends React.Component {
 //   constructor(props) {
