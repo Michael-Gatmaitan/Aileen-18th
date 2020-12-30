@@ -1,163 +1,163 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans&display=swap');
 @import './_compile';
 
+// body {
+//   font-family: 'Inter', sans-serif;
+//   color: #fff;
+//   background-color: #000;
+//   padding-top: 35px;
+//   margin: 0 18px;
+
+//   h1 {
+//     max-width: 80%;
+//   }
+
+//   button {
+//     margin-top: 12px;
+//     padding: 16px 32px;
+//     border-radius: 8px;
+//     font-size: 14px;
+//     font-family: 'Inter', sans-serif;
+//     font-weight: 600;
+//     border: none;
+//     outline: none;
+//     background-color: $secondary;
+//     color: #000;
+//   }
+// }
+
+html, body {
+  scroll-behavior: smooth;
+}
 body {
-  font-family: 'Inter', sans-serif;
-  color: #fff;
-  background-color: #000;
-  padding-top: 35px;
-  margin: 0 18px;
+  margin: 0 15px;
+  background-color: $primary;
 
-  h1 {
-    max-width: 80%;
-  }
-
-  button {
-    margin-top: 12px;
-    padding: 16px 32px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    border: none;
-    outline: none;
-    background-color: $secondary;
-    color: #000;
+  @include tablet {
+    margin: 0 50px;
   }
 }
 
-// html, body {
-//   scroll-behavior: smooth;
-// }
-// body {
-//   margin: 0 15px;
-//   background-color: $primary;
+* {
+  box-sizing: border-box;
+  user-select: none;
+  outline: none;
+}
 
-//   @include tablet {
-//     margin: 0 50px;
-//   }
-// }
+::-webkit-scrollbar {
+  display: none;
+}
 
-// * {
-//   box-sizing: border-box;
-//   user-select: none;
-//   outline: none;
-// }
-
-// ::-webkit-scrollbar {
-//   display: none;
-// }
-
-// // Render container
-// .render-box {
-//   padding-top: 117px;
-// }
+// Render container
+.render-box {
+  padding-top: 117px;
+}
 
 
-// nav {
-//   width: 100vw;
-//   height: 58px;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   display: flex;
-//   align-items: center;
-//   z-index: 998;
-//   background-color: rgba($primary, 0.8);
-//   backdrop-filter: blur(10px);
+nav {
+  width: 100vw;
+  height: 58px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  z-index: 998;
+  background-color: rgba($primary, 0.8);
+  backdrop-filter: blur(10px);
   
-//   .menu {
-//     height: 58px;
-//     width: calc(37px + 15px * 2);
-//     display: grid;
-//     place-items: center;
+  .menu {
+    height: 58px;
+    width: calc(37px + 15px * 2);
+    display: grid;
+    place-items: center;
 
-//     @include tablet {
-//       width: calc(37px + 50px * 2);
-//     }
-//   }
-// }
+    @include tablet {
+      width: calc(37px + 50px * 2);
+    }
+  }
+}
 
-// .menu-block {
-//   width: 100vw;
-//   height: 100vh;
-//   position: fixed;
-//   left: 0;
-//   top: -100vh;
-//   background-color: #121212;
-//   padding-top: 117px;
-//   padding-left: 15px;
-//   transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-//   overflow: hidden;
-//   z-index: 999;
+.menu-block {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: -100vh;
+  background-color: #121212;
+  padding-top: 117px;
+  padding-left: 15px;
+  transition: 0.6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  overflow: hidden;
+  z-index: 999;
 
-//   @include tablet {
-//     padding-left: 50px;
-//   }
+  @include tablet {
+    padding-left: 50px;
+  }
 
-//   .svg {
-//     position: absolute;
-//   }
+  .svg {
+    position: absolute;
+  }
 
-//   .svg1 {
-//     top: 80px;
-//     left: 259px;
-//   }
-//   .svg2 {
-//     top: 430px;
-//     left: -20px;
-//   }
-//   .svg3 {
-//     top: 473px;
-//     left: 261px;
-//   }
-//   .svg4 {
-//     top: 608px;
-//     left: 173px;
-//   }
+  .svg1 {
+    top: 80px;
+    left: 259px;
+  }
+  .svg2 {
+    top: 430px;
+    left: -20px;
+  }
+  .svg3 {
+    top: 473px;
+    left: 261px;
+  }
+  .svg4 {
+    top: 608px;
+    left: 173px;
+  }
 
-//   .menu-block-nav {
-//     width: 100vw;
-//     height: 56px;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
+  .menu-block-nav {
+    width: 100vw;
+    height: 56px;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-//     .menu-block-menu-button {
-//       height: 100%;
-//       display: grid;
-//       place-items: center;
-//       width: calc(28px + 15px * 2);
+    .menu-block-menu-button {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      width: calc(28px + 15px * 2);
 
-//       @include tablet {
-//         width: calc(28px + 50px * 2);
-//       }
-//     }
-//   }
+      @include tablet {
+        width: calc(28px + 50px * 2);
+      }
+    }
+  }
 
-//   ul {
-//     padding: 0;
-//     display: grid;
-//     grid-gap: 24px;
+  ul {
+    padding: 0;
+    display: grid;
+    grid-gap: 24px;
 
-//     li {
-//       transform: translateY(24px);
-//       opacity: 0;
-//       list-style-type: none;
+    li {
+      transform: translateY(24px);
+      opacity: 0;
+      list-style-type: none;
       
-//       a {
-//         color: #fff;
-//         text-decoration: none;
-//         font-family: $inter;
-//         font-size: 32px;
-//         font-weight: 700;
-//         transition: 0.3s ease-in;
-//         user-select: none;
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-family: $inter;
+        font-size: 32px;
+        font-weight: 700;
+        transition: 0.3s ease-in;
+        user-select: none;
 
-//         &:hover {
-//           color: #4CE6BF;
-//         }
-//       }
-//     }
-//   }
-// }
+        &:hover {
+          color: #4CE6BF;
+        }
+      }
+    }
+  }
+}

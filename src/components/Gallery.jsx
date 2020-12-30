@@ -1,25 +1,51 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { TweenMax, Power3 } from 'gsap';
 import './scss/gallery.css';
+import gsap, { TweenMax, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Gallery() {
 
-  let span1 = useRef(null);
-  let span2 = useRef(null);
-  let span3 = useRef(null);
-  let span4 = useRef(null);
+  let animationEffect = null;
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    let albumLength = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    albumLength.forEach((e, i) => {
+      let curNum = i + 1
+      let tl = gsap.from(`.album-animation${curNum}`, {
+        opacity: 0,
+        y: 60,
+        ease: 'power1.out',
+        stagger: {
+          amount: 1.3
+        },
+        duration: 0.8
+      });
+  
+      ScrollTrigger.create({
+        trigger: `#album-container${curNum}`,
+        start: "top center+=100px",
+        animation: tl
+      });
+    })
+  }, [animationEffect])
 
   useEffect(() => {
     document.body.style.backgroundColor = "#FCCAC5";
     let nav = document.getElementsByTagName("nav")[0];
     nav.style.backgroundColor = "rgba(252, 202, 197, 0.8)";
     
-    TweenMax.staggerFrom([span1,span2,span3,span4], .8, {
-      opacity: 0,
-      y: 10,
+    let textAnimation =
+    TweenMax.staggerFromTo(".textSpan", 0.8, {
+			opacity: 0,
+			y: 20,
+		}, {
+      opacity: 1,
+      y: 0,
       ease: Power3.easeOut,
-      delay: 1.5
-    }, .1);
+			delay: 1.5,
+    }, 0.1);
   }, []);
 
   let imageSource = [
@@ -125,40 +151,47 @@ function Gallery() {
   return (
     <div className="gallery-page page">
       <div className="header">
-        <div ref={ e => span1 = e }>Explore<br /></div>
-        <div ref={ e => span2 = e }>Aileen's<br /></div>
-        <div ref={ e => span3 = e }>Gallery for<br /></div>
-        <div ref={ e => span4 = e }>this October<br /></div>
+        <div className="textSpan">Explore<br /></div>
+        <div className="textSpan">Aileen's<br /></div>
+        <div className="textSpan">Gallery for<br /></div>
+        <div className="textSpan">this October<br /></div>
       </div>
 
       <div className="content">
-        {imageSource.map( (source, i) => (
-          <React.Fragment key={i}>
-            <div className="content-header">
-              Album {source.path}
+        {imageSource.map( (source, i) => {
+          
+          let specId = `album-container${i + 1}`;
+          let specClass = `album-animation${i + 1}`;
+
+          return (
+            <div className="album-container" id={specId} key={i}>
+              <div className={`content-header ${specClass}`}>
+                Album {source.path}
+              </div>
+              <div className={`date ${specClass}`}>{source.date}</div>
+        
+              <div className="image-grid">
+                {new Array(source.count).fill(0).map( (c, i) => (
+                  <div
+                    // We need this to animate :)
+                    style={{ gridColumn: pattern[i] }}
+                    className={`item ${specClass}`}
+                    key={i}
+                    onClick={() => {
+                      setImageCard({
+                        src: `${source.path}/${i+1}`
+                      });
+                      cardAction(true);
+                    }}
+                  >
+                    <img src={require(`../image/album${source.path}/${i+1}.jpg`)} alt="grid-" />
+                    <div className="darken"></div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="date">{source.date}</div>
-      
-            <div className="image-grid">
-              {new Array(source.count).fill(0).map( (c, i) => (
-                <div className="item"
-                  style={{ gridColumn: pattern[i] }}
-                  key={i}
-                  onClick={() => {
-                    setImageCard({
-                      src: `${source.path}/${i+1}`
-                    });
-                    console.log(imageCard);
-                    cardAction(true);
-                  }}
-                >
-                  <img src={require(`../image/album${source.path}/${i+1}.jpg`)} alt="grid-" />
-                  <div className="darken"></div>
-                </div>
-              ))}
-            </div>
-          </React.Fragment>
-        ))}
+          )}
+        )}
 
         <div className="goto">
           <div className="goto-header">Go to</div>

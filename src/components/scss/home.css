@@ -18,24 +18,12 @@
 .home-grid .grid {
   border-radius: 5px;
   overflow: hidden;
-  -webkit-box-shadow: 0 3px 6px rgba(219, 172, 167, 0.16);
-          box-shadow: 0 3px 6px rgba(219, 172, 167, 0.16);
 }
 
 @media (min-width: 658px) and (max-width: 1023px) {
   .home-grid .grid {
     border-radius: 10px;
   }
-}
-
-.home-grid .grid .mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #f00;
-  opacity: 0;
 }
 
 .home-grid .grid img {
@@ -47,6 +35,8 @@
           transform: translateX(0) scale(1);
   -webkit-animation: a 2s ease-in;
           animation: a 2s ease-in;
+  -webkit-box-shadow: 0 3px 6px rgba(219, 172, 167, 0.16);
+          box-shadow: 0 3px 6px rgba(219, 172, 167, 0.16);
 }
 
 .content {

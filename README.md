@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -65,4 +65,27 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
+
+
+### Aileen Joy Molina - 18
+
+Aileen Joy Molina, from Nueva Viscaya, Philippines. I miss uuuuu, Aileen. Luv ya lots!!!
+
+### October 12, 2020
+
+I planned to create this website on October 12, 2020 because the birthday of Aileen is coming in
+October 24, 2020 and I rushed so much just to create this website as fast as possible.
+
+### First (Big) Project
+This is my first fully functional front-end based website that I published on Netlify.
+I used ReactJS (JS) framework for the front-end of website and SCSS (CSS) framework for styling.
+
+## Check me on GitHub
+https://github.com/Michael-Gatmaitan
+
+## Contact / Message me on FB / IG / Twitter
+
+https://www.facebook.com/michael.gatmaitan29
+http://instagram.com/mchlgtmtn?utm_source=qr
+https://twitter.com/MichaelGatmait3?s=09
